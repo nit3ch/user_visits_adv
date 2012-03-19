@@ -1,0 +1,6 @@
+name = User Visits Advanced
+description = Extends the user_visits module with history data.
+dependencies[] = user_visits
+core = 7.x
+files[] = user_visits_adv.module
+files[] = user_visits_adv.install

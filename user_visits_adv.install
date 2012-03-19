@@ -1,0 +1,60 @@
+<?php
+// $Id: user_visits_adv.install,v 1.3 2009/03/10 15:58:43 toemaz Exp $
+
+/**
+ * @file
+ * user_visits_adv install file
+ */
+
+/**
+ * Implementation of hook_schema().
+ */
+function user_visits_adv_schema() {
+  $schema['user_visits_adv'] = array(
+    'description' => ('The base table user activity.'),
+    'fields' => array(
+      'uid' => array(
+        'description' => ('The primary identifier for a user.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE),
+      'total' => array(
+        'description' => ('Total count for visits.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE),
+      'visitors' => array(
+        'description' => ('The primary identifier for a visitor.'),
+        'type' => 'text'),
+      'history' => array(
+        'description' => ('History count of the user.'),
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE),
+      ),
+    'indexes' => array(
+      'uid'  => array('uid'),
+    ),
+  );
+  return $schema;
+}
+
+/**
+ * Implementation of hook_install().
+
+function user_visits_adv_install() {
+  drupal_install_schema('user_visits_adv');
+}
+*/
+/**
+ * Implementation of hook_uninstall().
+
+function user_visits_adv_uninstall() {
+  db_query('DROP TABLE {user_visits_adv}');
+
+  variable_del('user_visits_adv_history_limit');
+  variable_del('user_visits_adv_visitor_limit');
+  variable_del('user_visits_adv_block_items_0');
+  variable_del('user_visits_adv_block_items_1');
+}
+*/
